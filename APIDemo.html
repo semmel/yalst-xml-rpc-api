@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>XMLRPC_API Demo</title>
+	<script type="text/javascript" src="xmlRpcPayload.js"></script>
+	<script type="text/javascript" src="apiCall.js"></script>
+	<script type="text/javascript" src="mimic_2.2/source/mimic.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.js"></script>
+	<script>
+		var yalstApiCallConfiguration = {
+			url: 'http://yalst-test.visisoft.de/yalst/api.php',
+			method: 'system.isBusy',
+			site: '1-1',
+			md5: '[put the md5 of your api key here]'};
+	</script>
+</head>
+<body>
+<p>Sample web page to host and execute different Javascript clients for the <a href="http://www.yalst.de">yalst</a> XML-RPC API.</p>
+<p>Please see the included documentation for explanations and reference.</p>
+<div>
+	<input type="button" value="Is Busy? (handwritten AJAX)" onclick="callViaAjax(yalstApiCallConfiguration, function(resultText){document.getElementById('handwritten_result').innerHTML = resultText;});">
+	<div id="handwritten_result"></div>
+</div>
+<div>
+	<input type="button" value="Is Busy? (jquery AJAX)" onclick="callViaJQuery(yalstApiCallConfiguration,function(resultText){document.getElementById('jquery_result').innerHTML = resultText;});">
+	<div id="jquery_result"></div>
+</div>
+<div>
+	<input type="button" value="Is Busy? (MIMIC Library)" onclick="callViaMimic(yalstApiCallConfiguration,function(resultText){document.getElementById('mimic_result').innerHTML = resultText;});">
+	<div id="mimic_result"></div>
+</div>
+</body>
+</html>
